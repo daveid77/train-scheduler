@@ -1,0 +1,30 @@
+ html, body {
+  min-height: 100%;
+ }
+ body {
+  margin-bottom: 80px;
+  background: #e4e4e3; /*url('../images/fabric_1.png');*/
+}
+.jumbotron {
+  color: #fff;
+  background: #000;
+}
+footer {
+  color: #c5ccb8;
+  text-align: center;
+  background-color: #ddd;
+  border-top: 2px solid #337ab7;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+}
+footer .copyright p {
+  margin: 0;
+}
+footer .copyright a {
+  padding: 0;
+  color: #818181;
+}
