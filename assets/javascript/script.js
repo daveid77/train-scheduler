@@ -93,19 +93,9 @@ $(document).ready(function() {
   //   event.preventDefault();
 
   //   // Remove from firebase
-  //   firebase.child('articlesList').orderByChild('site').equalTo('SciShow').once('child_added', function(snapshot){
+  //   database.ref().orderByChild('dateAdded').once('child_added', function(snapshot){
   //       snapshot.ref().remove();  
   //     });
-  //   // database.ref().orderByChild("dateAdded").limitToLast(1).once("child_added", function(snapshot)
-  //   database.ref().remove(
-  //   {
-  //     trainName: trainName,
-  //     destination: destination,
-  //     firstTime: firstTime,
-  //     frequency: frequency,
-  //     dateAdded: firebase.database.ServerValue.TIMESTAMP
-  //     // https://www.unixtimestamp.com/
-  //   });
 
   // });
   

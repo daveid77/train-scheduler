@@ -8,7 +8,6 @@ Week Four Homework Part 1: [Firebase Assignment - Basic](http://ucb.bootcampcont
 
 * Among game enhancements beyond [mockup image](hhttp://ucb.bootcampcontent.com/UCB-Coding-Bootcamp/09-11-2017-UCB-Class-Repository-FSF-FT/blob/master/04-week/homework/part-1/Instructions/Train_Time_Image.png):
   * Current Schedule row doesn't appear until data exists.
-  * Remove button included.  
 
 ## Author
 
