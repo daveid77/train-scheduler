@@ -39,7 +39,7 @@ $(document).ready(function() {
       frequency = snapshot.val().frequency; // user inputted
       var newFrequency = $('<td>').text(frequency);
       firstTime = snapshot.val().firstTime; // user inputted
-      
+
         console.log(firstTime);
         console.log('current time: ' + moment().format("hh:mma"));
 
@@ -48,6 +48,7 @@ $(document).ready(function() {
       var timeRemainder = timeDiff % frequency;
       var minutesAway = frequency - timeRemainder;
       var nextArrival = moment().add(minutesAway, "minutes").format("hh:mma");
+      
       var newArrival = $('<td>').text(nextArrival);
       var newMinutes = $('<td>').text(minutesAway);
 
