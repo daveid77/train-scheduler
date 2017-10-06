@@ -39,7 +39,9 @@ $(document).ready(function() {
       frequency = snapshot.val().frequency; // user inputted
       var newFrequency = $('<td>').text(frequency);
       firstTime = snapshot.val().firstTime; // user inputted
+      
         console.log(firstTime);
+        console.log('current time: ' + moment().format("hh:mma"));
 
       var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
       var timeDiff = moment().diff(moment(firstTimeConverted), "minutes");
