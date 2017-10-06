@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
   <title>Train Scheduler :: David Morse</title>
-  <!-- jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- Bootstrap CDN-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
   <!-- Unique CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 
@@ -18,19 +20,19 @@
       <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
         <div class="jumbotron">
           <h2 class="text-center">Train Scheduler</h2>
-          <p class="text-center">Keeping the Trains Running on Time</strong>
+          <p class="text-center">Keepin' the Trains Running on Time</strong>
         </div>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" id="current-schedule-row">
       <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
         <div class="panel panel-primary">
           <div class="panel-heading">
             <strong>Current Train Schedule</strong>
           </div>
           <div class="panel-body">
-            <table class="table" id="employee-data">
+            <table class="table" id="train2-data">
               <thead>
                 <tr>
                   <th>Train Name</th>
@@ -57,22 +59,22 @@
           <div class="panel-body">
             <form>
               <div class="form-group">
-                <label for="start-year">Train Name</label>
-                <input type="text" class="form-control myclass" id="employee-name">
+                <label for="train-name">Train Name</label>
+                <input type="text" class="form-control" id="train-name">
               </div>
               <div class="form-group">
-                <label for="end-year">Destination</label>
-                <input type="text" class="form-control myclass" id="role">
+                <label for="destination">Destination</label>
+                <input type="text" class="form-control" id="destination">
               </div>
               <div class="form-group">
-                <label for="end-year">First Train Time (HH:mm - military time)</label>
-                <input type="text" class="form-control myclass" id="monthly-rate">
+                <label for="train-time">First Train Time (HH:mm - military time)</label>
+                <input type="text" class="form-control" id="train-time">
               </div>
               <div class="form-group">
-                <label for="end-year">Frequency (min)</label>
-                <input type="text" class="form-control myclass" id="start-date">
+                <label for="frequency">Frequency (min)</label>
+                <input type="text" class="form-control" id="frequency">
               </div>
-              <button class="btn btn-primary" type="submit" id="search-btn">Submit</button>
+              <button class="btn btn-primary" type="submit" id="submit-btn">Submit</button>
               <button class="btn btn-primary" type="submit" id="delete-btn">Delete something</button>
             </form>
           </div>
@@ -88,6 +90,9 @@
       </div>
     </div>
   </footer>
+
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- Bootstrap JS -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  

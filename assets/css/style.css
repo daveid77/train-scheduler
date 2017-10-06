@@ -2,12 +2,18 @@
   min-height: 100%;
  }
  body {
-  margin-bottom: 80px;
   background: #e4e4e3; /*url('../images/fabric_1.png');*/
 }
+.container {
+  margin-bottom: 40px;
+}
 .jumbotron {
+  margin-bottom: 20px;
   color: #fff;
   background: #000;
+}
+#current-schedule-row {
+  display: none;
 }
 footer {
   color: #c5ccb8;
@@ -19,6 +25,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  height: 40px;
   padding: 10px 0;
 }
 footer .copyright p {
