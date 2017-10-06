@@ -22,9 +22,6 @@ $(document).ready(function() {
   var destination = '';
   var firstTime = '';
   var frequency = '';
-  var nextArrival = '';
-  var minutesAway = '';
-  var currentTime = '';
 
   // Get data from firebase and append to DOM
   database.ref().on('child_added', function(snapshot) {
@@ -47,8 +44,8 @@ $(document).ready(function() {
       var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
       var timeDiff = moment().diff(moment(firstTimeConverted), "minutes");
       var timeRemainder = timeDiff % frequency;
-      minutesAway = frequency - timeRemainder;
-      nextArrival = moment().add(minutesAway, "minutes").format("hh:mma");
+      var minutesAway = frequency - timeRemainder;
+      var nextArrival = moment().add(minutesAway, "minutes").format("hh:mma");
       var newArrival = $('<td>').text(nextArrival);
       var newMinutes = $('<td>').text(minutesAway);
 
