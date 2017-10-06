@@ -4,7 +4,7 @@
 
 $(document).ready(function() {
 
-  // Initialize Firebase
+  // Initialize firebase
   var config = {
     apiKey: "AIzaSyCrlKMOM9m3JbnTmOaJnF5BEw-UQWltduU",
     authDomain: "train-scheduler-2afd0.firebaseapp.com",
@@ -20,11 +20,13 @@ $(document).ready(function() {
   // Initial Values
   var trainName = '';
   var destination = '';
-  var trainTime = '';
+  var firstTime = '';
   var frequency = '';
   var nextArrival = '';
   var minutesAway = '';
+  var currentTime = '';
 
+  // Get data from firebase and append to DOM
   database.ref().on('child_added', function(snapshot) {
 
       // console.log('trainName: ' + snapshot.val().trainName);
@@ -33,19 +35,21 @@ $(document).ready(function() {
 
       var newRow = $('<tr>');
 
-      trainName = snapshot.val().trainName;
+      trainName = snapshot.val().trainName; // user inputted
       var newName = $('<td>').text(trainName);
-
-      destination = snapshot.val().destination;
+      destination = snapshot.val().destination; // user inputted
       var newDestination = $('<td>').text(destination);
-
-      frequency = snapshot.val().frequency;
+      frequency = snapshot.val().frequency; // user inputted
       var newFrequency = $('<td>').text(frequency);
+      firstTime = snapshot.val().firstTime; // user inputted
+        console.log(firstTime);
 
-      nextArrival = snapshot.val().nextArrival;
+      var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
+      var timeDiff = moment().diff(moment(firstTimeConverted), "minutes");
+      var timeRemainder = timeDiff % frequency;
+      minutesAway = frequency - timeRemainder;
+      nextArrival = moment().add(minutesAway, "minutes").format("hh:mma");
       var newArrival = $('<td>').text(nextArrival);
-
-      minutesAway = snapshot.val().minutesAway;
       var newMinutes = $('<td>').text(minutesAway);
 
       newRow.append(newName,newDestination,newFrequency,newArrival,newMinutes);
@@ -57,20 +61,20 @@ $(document).ready(function() {
 
     event.preventDefault();
 
-    // Get values from text boxes
+    // Get values from form inputs
     trainName = $('#train-name').val().trim();
     destination = $('#destination').val().trim();
-    trainTime = $('#train-time').val().trim();
+    firstTime = $('#first-time').val().trim();
     frequency = $('#frequency').val().trim();
 
-    console.log(trainTime);
+    //console.log(firstTime);
 
     // Push to firebase
     database.ref().push(
     {
       trainName: trainName,
       destination: destination,
-      trainTime: trainTime,
+      firstTime: firstTime,
       frequency: frequency,
       dateAdded: firebase.database.ServerValue.TIMESTAMP
       // https://www.unixtimestamp.com/
@@ -79,7 +83,7 @@ $(document).ready(function() {
     // Empty form input values
     $('#train-name').val('');
     $('#destination').val('');
-    $('#train-time').val('');
+    $('#first-time').val('');
     $('#frequency').val('');
 
   });
@@ -97,7 +101,7 @@ $(document).ready(function() {
   //   {
   //     trainName: trainName,
   //     destination: destination,
-  //     trainTime: trainTime,
+  //     firstTime: firstTime,
   //     frequency: frequency,
   //     dateAdded: firebase.database.ServerValue.TIMESTAMP
   //     // https://www.unixtimestamp.com/
